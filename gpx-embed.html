@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPX Embed</title>
+    <style>
+        html, body, iframe {
+            margin:0;
+            padding:0;
+            border:none;
+            height:100vh;
+            width:100vw;
+            overflow:hidden;
+            background:#fff;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="gpxFrame" src="" allowfullscreen></iframe>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const gpxUrl = params.get('url');
+        if (gpxUrl) {
+            document.getElementById('gpxFrame').src = gpxUrl;
+        } else {
+            document.body.innerHTML = "<p>No GPX URL provided.</p>";
+        }
+    </script>
+</body>
+</html>
